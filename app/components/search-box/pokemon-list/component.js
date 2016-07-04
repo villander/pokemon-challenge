@@ -6,7 +6,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  classNames: ['list-group'],
+  classNames: ['search-box list-group'],
   didInsertElement() {
     this._super(...arguments);
     this.$().on('scroll', this, () => { this.handleScroll(); });

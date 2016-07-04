@@ -18,8 +18,8 @@ export default Route.extend({
       .then((data) => {
         this.set('nextRequest', data.next);
         const results = data.results;
-        this.store.pushPayload('result', { results });
-        return this.store.peekAll('result');
+        this.get('store').pushPayload('result', { results });
+        return this.get('store').peekAll('result');
       }, (error) => {
         throw error;
       });
