@@ -5,8 +5,9 @@ moduleForModel('result', 'Unit | Model | result', {
   needs: []
 });
 
-test('it exists', function(assert) {
-  let model = this.subject();
-  // let store = this.store();
-  assert.ok(!!model);
+test('it has the attribute name', function(assert) {
+  const model = this.subject();
+  const hasAttrName = Object.keys(model.toJSON()).indexOf('name') > -1;
+  assert.ok(hasAttrName);
 });
+

@@ -7,11 +7,9 @@ moduleForComponent('search-box/pokemon-list', 'Integration | Component | search 
 });
 
 const pokemonStub = [
-  Ember.Object.create({
-    id: 1,
-    name: 'Pokemon1'
-  })
+  Ember.Object.create({ id: 1, name: 'Pokemon1' })
 ];
+
 test('renders pokemons', function (assert) {
   assert.expect(2);
 
