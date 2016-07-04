@@ -1,0 +1,64 @@
+<div class="[ col-md-5 ]">
+    <div class="[ panel panel-default ] ">
+        <div class="panel-heading col-md-12">
+            <img class="[ img-circle pull-left ]" src={{model.pokemon.sprites.front_default}} alt="Mouse0270" />
+            <h3>{{capitalize-first-letter model.pokemon.name}}</h3>
+        </div>
+        
+        <div class="panel-body">
+          <div class="[ col-md-6 ]">
+            <div class="panel-heading">
+                <h4 class="panel-title">Basic Information</h4>
+            </div>
+             <table class="table _stat-table">
+            <tbody>
+                <tr>
+                    <th scope="row'">Height</th>
+                    <td>{{model.pokemon.height}}</td>
+                </tr>
+                <tr>
+                    <th scope="row'">Weight:</th>
+                    <td>{{model.pokemon.height}}</td>
+                </tr>
+                <tr>
+                    <th scope="row'">Base experience:</th>
+                    <td>{{model.pokemon.base_experience}}</td>
+                </tr>
+            </tbody>
+             </table>
+          </div>
+          <div class="[ col-md-6 ]">
+              <div class="panel-heading">
+                <h4 class="panel-title">Base Stats</h4>
+              </div>
+              <table class="table _stat-table">
+                <tbody>
+                    {{#each model.pokemon.stats as |statInfo|}}
+                      <tr>
+                        <th scope="row'">{{statInfo.stat.name}}</th>
+                        <td>{{statInfo.base_stat}}</td>
+                      </tr>
+                    {{/each}}
+                    <tr>
+                      <th scope="row'">Total</th>
+                      <td>{{sum-stats model.pokemon.stats}}</td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        
+        
+        <div class="panel-footer">
+            <button class="[ btn btn-default ]"  data-toggle="modal" data-target="#comment-form-modal">Add comment...
+                <span class="[ glyphicon glyphicon-comment ]"></span>
+            </button>
+            {{pokemon-details/comment-form 
+                pokemon=model.pokemon
+                sendComment=sendComment}}
+        </div>
+    </div>
+    {{pokemon-details/comment-list 
+        comments=model.comments}}
+</div>
+
