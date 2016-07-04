@@ -1,22 +1,33 @@
 <div class="[ col-md-5 ]">
-    <div class="[ panel panel-default ] panel-google-plus">
-        <div class="panel-heading">
+    <div class="[ panel panel-default ] ">
+        <div class="panel-heading col-md-12">
             <img class="[ img-circle pull-left ]" src={{model.pokemon.sprites.front_default}} alt="Mouse0270" />
-            <h3>{{model.pokemon.name}}</h3>{{model.id}}
-            <h5><span>Shared publicly</span> - <span>Jun 27, 2014</span> </h5>
+            <h3>{{capitalize-first-letter model.pokemon.name}}</h3>
         </div>
-
-        {{model.pokemon.name}}
         
         <div class="panel-body">
           <div class="[ col-md-6 ]">
-            <p>Name: {{model.pokemon.name}}</p>
-            <p>Height: {{model.pokemon.height}}</p>
-            <p>Weight: {{model.pokemon.weight}}</p>
-            <p>Base experience: {{model.pokemon.base_experience}}</p>
+            <div class="panel-heading">
+                <h4 class="panel-title">Basic Information</h4>
+            </div>
+             <table class="table _stat-table">
+            <tbody>
+                <tr>
+                    <th scope="row'">Height</th>
+                    <td>{{model.pokemon.height}}</td>
+                </tr>
+                <tr>
+                    <th scope="row'">Weight:</th>
+                    <td>{{model.pokemon.height}}</td>
+                </tr>
+                <tr>
+                    <th scope="row'">Base experience:</th>
+                    <td>{{model.pokemon.base_experience}}</td>
+                </tr>
+            </tbody>
+             </table>
           </div>
           <div class="[ col-md-6 ]">
-            <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">Base Stats</h4>
               </div>
@@ -34,7 +45,6 @@
                     </tr>
                 </tbody>
               </table>
-            </div>
           </div>
         </div>
         
@@ -98,13 +108,20 @@
             </div>
         </div>
     </div>
-    <ul>
-        {{model.comments.firstObject}}
-        {{#each model.comments as |comment|}}
-            <li>{{comment.name}}</li>
-            <li>{{comment.email}}</li>
-            <li>{{comment.message}}</li>
-        {{/each}}
-        </ul>
+    <h3>Comments</h3>
+    {{#each model.comments as |comment|}}
+    <!-- Comment -->
+    <div class="media">
+        <a class="pull-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64" alt="">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">{{comment.name}}
+                <small>August 25, 2014 at 9:30 PM</small>
+            </h4>
+            {{comment.message}}
+        </div>
+    </div>
+    {{/each}}
 </div>
 

@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function () {
   this.route('pokemons', function() {
-    this.route('single', { path: '/:name' });
+    this.route('single', { path: '/:id' });
   });
 });
 

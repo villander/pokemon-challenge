@@ -6,5 +6,8 @@ export default Model.extend({
   name: attr('string'),
   email: attr('string'),
   message: attr('string'),
-  pokemon: belongsTo('pokemon', { async: true })
+  pokemon: belongsTo('pokemon', { async: true }),
+  createdAt: attr('date', {
+    defaultValue() { return new Date(); }
+  }) 
 });

@@ -7,5 +7,6 @@ export default Model.extend({
   stats: attr(),
   height: attr('string'),
   weight: attr('string'),
-  sprites: attr()
+  sprites: attr(),
+  base_experience: attr('string')
 });

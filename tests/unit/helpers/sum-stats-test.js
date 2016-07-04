@@ -3,13 +3,13 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | sum stats');
 
-test('it sums the base stats', function(assert) {
+test('it sums the base stats', (assert) => {
   let stats = [{
-		base_stat: 3
+		base_stat: 6
 	},
 	{
-		base_stat: 8
+		base_stat: 6
 	}];
 	let result = sumStats([stats]);
- 	assert.equal(result, 11);
+ 	assert.equal(result, 12);
 });

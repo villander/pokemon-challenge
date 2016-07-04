@@ -1,20 +1,4 @@
-
-  <div class="col-md-4">
-    <h4>Search a Pok&eacute;mon:</h4>
-    <div class="input-group">
-      {{input class='form-control' placeholder='Enter Pokemon name or number'}}
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default" aria-label="Search" >
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </span>
-    </div>
-    <div class="list-group">
-      {{#each model as |pokemon|}}
-          {{#link-to 'pokemons.single' pokemon.name classNames="list-group-item"}}
-              {{pokemon.name}}
-          {{/link-to}}
-      {{/each}}
-    </div>
-  </div>
+{{search-box 
+    pokemons=model
+    loadMorePokemons=(route-action "getMorePokemons")}}
 {{outlet}}

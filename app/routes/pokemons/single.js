@@ -12,12 +12,12 @@ export default Route.extend({
       .then((pokemon) => {
         return pokemon.get('firstObject.comments');
       });
-    const foundPokemon = this.get('store').peekAll('pokemontmp').findBy('name', params.name);
+    const foundPokemon = this.get('store').peekRecord('pokemontmp', params.id);
     let pokemon;
     if (foundPokemon) {
       pokemon = foundPokemon;
     } else {
-      pokemon = $.getJSON(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
+      pokemon = $.getJSON(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
         .then((data) => {
           const pokemonData = {
             pokemontmp: [{
@@ -26,7 +26,8 @@ export default Route.extend({
               stats: data.stats,
               height: data.height,
               weight: data.weight,
-              sprites: data.sprites
+              sprites: data.sprites,
+              base_experience: data.base_experience
             }]
           };
           this.get('store').pushPayload('pokemontmp', pokemonData);
