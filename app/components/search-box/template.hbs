@@ -11,6 +11,10 @@
     </button>
   </span>
 </div>
-{{search-box/pokemon-list
-    loadMorePokemons=loadMorePokemons
-    pokemons=filteredPokemons}}
+{{#if filteredPokemons.length}}
+  {{search-box/pokemon-list
+      loadMorePokemons=loadMorePokemons
+      pokemons=filteredPokemons}}
+{{else}}
+  <h5>No pokémon found</h5>
+{{/if}}
