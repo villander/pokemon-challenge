@@ -23,5 +23,5 @@ test('should be rendered comments with name, message and date', function (assert
   assert.equal(this.$().length, 1);
   assert.equal(this.$().find('.comment-name').text().trim(), 'James Bond');
   assert.equal(this.$().find('.comment-message').text().trim(), 'Hello guys');
-  assert.equal(this.$().find('.comment-date').text().trim(), `on ${moment(stubComment[0].createdAt).format('YYYY-MM-DD HH:mm')}`);
+  assert.equal(this.$().find('.comment-date').text().trim(), 'on a few seconds ago');
 });

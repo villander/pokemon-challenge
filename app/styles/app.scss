@@ -8,7 +8,7 @@
 
 .container-app {
   padding-top: 60px;
-    padding-left: 0;
+  padding-bottom: 30px;
 }
 .search-box {
       border-radius: 0;
@@ -16,6 +16,7 @@
   .input-group {
 
     height: 60px;
+    margin-bottom: 20px;
     #search-input,
     .button-search--pokemon {
           border-radius: 0;
@@ -26,14 +27,50 @@
 .search-box--pokemon-list {
     border-radius: 0;
     overflow-y: auto;
-    max-height: 700px;
+    max-height: 500px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     .list-group-item {
         border-radius: 0;
         padding: 16px;
+      &:first-child {
+        border-top: 0; 
+      }
+      &:last-child {
+        border-bottom: 0;
+      }
       &.active {
         border-radius: 0;
         padding: 16px;
       }
     }
+}
+
+.card-pokemon {
+  border-radius: 0;
+  margin-top: 38px;
+  .panel-body .col-md-6 {
+    padding-top: 15px;
+    .table {
+      margin-bottom: 0;
+    }
+    .panel-heading {
+      padding: 10px 8px;
+      h4 {
+        font-weight: bold;
+      }
+    }
+  }
+  .panel-heading {
+    h3 {
+      margin: 34px 15px 0;
+      float: left;
+
+    }
+  }
+  
+}
+.comment-item {
+  margin: 15px 0;
 }
 

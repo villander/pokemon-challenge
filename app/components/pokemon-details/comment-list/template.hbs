@@ -1,14 +1,18 @@
-<h3>Comments</h3>
+{{#if comments.length}}
+    <h3>Comments</h3>
     {{#each comments as |comment|}}
     <!-- Comment -->
-    <div class="media">
-        <p class="pull-right"><small class="comment-date">on {{moment-format comment.createdAt "YYYY-MM-DD HH:mm"}}</small></p>
-        <a class="media-left" href="#">
-            <img src="http://lorempixel.com/40/40/people/1/">
-        </a>
+    <div class="media comment-item">
+        <p class="pull-right"><small class="comment-date">on {{moment-from-now comment.createdAt "YYYY-MM-DD HH:mm"}}</small></p>
+        <div class="media-left">
+            <img src="http://placehold.it/64x64">
+        </div>
         <div class="media-body">
             <h4 class="media-heading comment-name">{{comment.name}}</h4>
             <p class="comment-message">{{comment.message}}</p>
         </div>
     </div>
     {{/each}}
+{{else}}
+    <h4>Be the first to comment</h4>
+{{/if}}
