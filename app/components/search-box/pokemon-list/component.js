@@ -6,7 +6,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  classNames: ['search-box list-group'],
+  classNames: ['search-box--pokemon-list'],
   didInsertElement() {
     this._super(...arguments);
     this.$().on('scroll', this, () => { this.handleScroll(); });
@@ -21,6 +21,7 @@ export default Component.extend({
     const heightOfElement = this.$().innerHeight();
     if (scrollPosition + heightOfElement >= scrollHeight) {
       this.send('loadMorePokemons');
+      console.log('caramba');
     }
   },
   actions: {

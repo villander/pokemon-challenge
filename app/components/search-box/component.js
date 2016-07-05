@@ -6,7 +6,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  classNames: ['col-md-3'],
+  classNames: ['search-box', 'col-md-3'],
   filteredPokemons: computed('pokemons', 'query', function () {
     let pokemons = this.get('pokemons');
     if (this.get('query')) {
