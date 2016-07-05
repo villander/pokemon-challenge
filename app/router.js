@@ -6,9 +6,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-  this.route('pokemons', function() {
+  this.route('pokemons', function () {
     this.route('single', { path: '/:id' });
   });
+  this.route('error404', { path: '/*path' });
 });
 
 export default Router;
