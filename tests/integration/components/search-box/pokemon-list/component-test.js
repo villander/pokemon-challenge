@@ -17,7 +17,7 @@ test('renders pokemons', function (assert) {
 
   this.render(hbs`{{search-box/pokemon-list pokemons=pokemons}}`);
 
-  let $component = this.$('.list-group');
+  let $component = this.$('.search-box--pokemon-list');
   assert.equal($component.length, 1);
   assert.equal($component.text().trim(), 'Pokemon1');
 });
@@ -34,7 +34,7 @@ test('should trigger external action on end scroll', function (assert) {
 
   this.render(hbs`{{search-box/pokemon-list pokemons=pokemons loadMorePokemons=(action 'externalAction')}}`);
 
-  let $component = this.$('.list-group');
+  let $component = this.$('.search-box--pokemon-list');
   assert.equal($component.text().trim(), 'Pokemon1');
   $component.height(30);
   $component.scrollTop($component.prop('scrollHeight'));
