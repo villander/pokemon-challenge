@@ -5,20 +5,4 @@ moduleForComponent('pokemon-details', 'Integration | Component | pokemon details
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{pokemon-details}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#pokemon-details}}
-      template block text
-    {{/pokemon-details}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
-});
