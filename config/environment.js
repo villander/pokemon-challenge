@@ -8,7 +8,7 @@ module.exports = function (environment) {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self' http://fonts.gstatic.com",
-      'connect-src': "'self' https://auth.firebase.com  https://pokeapi.co/api/v2 wss://*.firebaseio.com",
+      'connect-src': "'self' https://pokeapi.co/api/v2 wss://*.firebaseio.com",
       'img-src': "'self' data:",
       'media-src': "'self'"
     },
