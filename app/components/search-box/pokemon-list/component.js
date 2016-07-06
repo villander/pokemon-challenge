@@ -21,7 +21,6 @@ export default Component.extend({
     const heightOfElement = this.$().innerHeight();
     if (scrollPosition + heightOfElement >= scrollHeight) {
       this.send('loadMorePokemons');
-      console.log('caramba');
     }
   },
   actions: {
