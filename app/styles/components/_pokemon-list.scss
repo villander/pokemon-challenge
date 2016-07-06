@@ -1,0 +1,21 @@
+.search-box--pokemon-list {
+    border-radius: 0;
+    overflow-y: auto;
+    max-height: 500px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    .list-group-item {
+        border-radius: 0;
+        padding: 16px;
+      &:first-child {
+        border-top: 0; 
+      }
+      &:last-child {
+        border-bottom: 0;
+      }
+      &.active {
+        border-radius: 0;
+        padding: 16px;
+      }
+    }
+}

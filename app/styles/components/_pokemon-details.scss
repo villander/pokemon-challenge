@@ -1,0 +1,24 @@
+.card-pokemon {
+  border-radius: 0;
+  margin-top: 38px;
+  .panel-body .col-md-6 {
+    padding-top: 15px;
+    .table {
+      margin-bottom: 0;
+    }
+    .panel-heading {
+      padding: 10px 8px;
+      h4 {
+        font-weight: bold;
+      }
+    }
+  }
+  .panel-heading {
+    h3 {
+      margin: 34px 15px 0;
+      float: left;
+
+    }
+  }
+  
+}
