@@ -3,8 +3,7 @@ import Ember from 'ember';
 const {
   Component,
   computed,
-  run,
-  setProperties
+  run
 } = Ember;
 
 export default Component.extend({
@@ -13,6 +12,15 @@ export default Component.extend({
   isMessageEnoughLong: computed.gte('message.length', 5),
   isValidEmailAndMessage: computed.and('isValidEmail', 'isMessageEnoughLong'),
   isValid: computed.and('isValidEmailAndMessage', 'isValidName'),
+
+  rollBackAttributes() {
+    this.setProperties({
+      emailAddress: '',
+      name: '',
+      message: '',
+      responseMessage: false
+    });
+  },
 
   actions: {
     sendComment() {
@@ -26,15 +34,15 @@ export default Component.extend({
           this.set('responseMessage', true);
           run.later(() => {
             this.$('#comment-form-modal').modal('hide');
+            this.rollBackAttributes();
           }, 500);
+
         });
 
-      setProperties({
-        emailAddress: '',
-        name: '',
-        message: '',
-        responseMessage: false
-      });
+    },
+    close() {
+      this.rollBackAttributes();
+      this.$('#comment-form-modal').modal('hide');
     }
   }
 });

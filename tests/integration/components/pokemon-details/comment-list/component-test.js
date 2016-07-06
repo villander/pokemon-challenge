@@ -1,6 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import moment from 'moment';
 
 moduleForComponent('pokemon-details/comment-list', 'Integration | Component | pokemon details/comment list', {
   integration: true
