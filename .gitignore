@@ -1,4 +1,4 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
 /dist
@@ -13,5 +13,17 @@
 /connect.lock
 /coverage/*
 /libpeerconnection.log
-npm-debug.log
+npm-debug.log*
 testem.log
+
+ember-cordova/tmp-livereload
+ember-cordova/cordova/www/*
+!ember-cordova/cordova/www/.gitkeep
+ember-cordova/cordova/plugins/*
+!ember-cordova/cordova/plugins/.gitkeep
+ember-cordova/cordova/platforms/*
+!ember-cordova/cordova/platforms/.gitkeep
+
+# vscode
+
+/typings
