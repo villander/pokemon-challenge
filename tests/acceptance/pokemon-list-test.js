@@ -11,7 +11,6 @@ test('visiting /pokemon-list', function (assert) {
   });
 });
 
-
 test('should list pokemons', function (assert) {
   visit('/pokemons');
   andThen(() => {
