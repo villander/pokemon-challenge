@@ -16,7 +16,6 @@ test('shoud has a relationship with comment', function(assert) {
 
   const model = this.store().modelFor('pokemon');
   const relationship = get(model, 'relationshipsByName').get('comments');
-  console.log(relationship.key);
 
   assert.equal(relationship.key, 'comments', 'has relationship with comment');
   assert.equal(relationship.kind, 'hasMany', 'kind of relationship is hasMany');
