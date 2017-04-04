@@ -19,6 +19,7 @@ module.exports = function (environment) {
       databaseURL: 'https://pokemonchallenge.firebaseio.com',
       storageBucket: 'https://pokemonchallenge.appspot.com',
     },
+    
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
