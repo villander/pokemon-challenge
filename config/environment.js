@@ -19,8 +19,8 @@ module.exports = function (environment) {
       databaseURL: 'https://pokemonchallenge.firebaseio.com',
       storageBucket: 'https://pokemonchallenge.appspot.com',
     },
-    rootURL: '',
-    locationType: 'hash',
+    rootURL: '/',
+    locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
