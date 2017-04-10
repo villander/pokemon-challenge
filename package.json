@@ -40,7 +40,8 @@
     "ember-source": "~2.12.0",
     "ember-welcome-page": "^2.0.2",
     "emberfire": "2.0.5",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "zssn-rest-api": "git+ssh://git@github.com/villander/api-rest-survivors.git"
   },
   "engines": {
     "node": ">= 4"
