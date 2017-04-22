@@ -5,7 +5,7 @@ const {
 } = Ember;
 
 export default Route.extend({
-  redirect() {
-    this.replaceWith('pokemons');
+  beforeModel() {
+    this.transitionTo('pokemons');
   }
 });
