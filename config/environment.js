@@ -13,12 +13,16 @@ module.exports = function (environment) {
       'img-src': "'self' data:",
       'media-src': "'self'"
     },
+    fastboot: {
+      hostWhitelist: ['https://pokeapi.co/api/v2/pokemon', /^localhost:\d+$/]
+    },
     firebase: {
       apiKey: 'koTZajKCgYdB4ROYBOdr119vfMEKEdOT3qgQzceT',
       authDomain: 'https://pokemonchallenge.firebaseapp.com',
       databaseURL: 'https://pokemonchallenge.firebaseio.com',
       storageBucket: 'https://pokemonchallenge.appspot.com',
     },
+    
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {

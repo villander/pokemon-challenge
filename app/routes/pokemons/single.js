@@ -1,8 +1,8 @@
 import Ember from 'ember';
+import fetch from 'ember-network/fetch';
 
 const {
   Route,
-  $,
   RSVP
 } = Ember;
 
@@ -14,17 +14,20 @@ export default Route.extend({
           return pokemonArray.get('firstObject.comments');
         } else {
           // if not exist, save the pokemon as reference in firebase
-          return this.savePokemon(params.id);
+          return this._savePokemon(params.id);
         }
       });
-      
+
     const foundPokemon = this.get('store').peekRecord('pokemontmp', params.id);
     let pokemon;
 
     if (foundPokemon) {
       pokemon = foundPokemon;
     } else {
-      pokemon = $.getJSON(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
+      pokemon = fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
+        .then((response) => {
+          return response.json();
+        })
         .then((data) => {
           const pokemonData = {
             pokemontmp: [{
@@ -44,7 +47,7 @@ export default Route.extend({
 
     return RSVP.hash({ pokemon, comments });
   },
-  savePokemon(pokemonId) {
+  _savePokemon(pokemonId) {
     const pokemon = this.get('store').createRecord('pokemon', { pokemonId });
     return pokemon.save().then(() => {
       return pokemon.get('comments');

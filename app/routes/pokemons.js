@@ -1,39 +1,36 @@
 import Ember from 'ember';
+import fetch from 'ember-network/fetch';
 
 const {
   Route,
-  $,
-  run,
-  RSVP
+  run
 } = Ember;
 
 export default Route.extend({
   nextRequest: '',
-  redirect() {
-    this.replaceWith('pokemons');
-  },
   model() {
-    return this.getPokemons("https://pokeapi.co/api/v2/pokemon/");
+    return this._getPokemons('https://pokeapi.co/api/v2/pokemon');
   },
-  getPokemons(url) {
-    return new RSVP.Promise((resolve, reject) => {
-      $.getJSON(url).then((data) => {
-          this.set('nextRequest', data.next);
-          const results = data.results;
-          run(() => {
-            this.get('store').pushPayload('result', { results });
-            const pokemons = this.get('store').peekAll('result');
-            resolve(pokemons);
-          });
-        }, (jqXHR) => {
-          run(() => reject(jqXHR));
-        });
-    });
+  _getPokemons(url) {
+    return fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.set('nextRequest', data.next);
+        const { results } = data;
+        this.get('store').pushPayload('result', { results });
+        const pokemons = this.get('store').peekAll('result');
+        return pokemons;
+      })
+      .catch((error) => {
+        run(() => error);
+      });
   },
   actions: {
     getMorePokemons() {
       if (this.get('nextRequest')) {
-        this.getPokemons(this.get('nextRequest'));
+        this._getPokemons(this.get('nextRequest'));
       }
     }
   }
